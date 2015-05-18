@@ -1,16 +1,94 @@
-var express     = require('express'),
-    app         = express(),
-    bodyParser  = require('body-parser'),
-    favicon     = require('serve-favicon')
-    //signupController = require('./client/js/controllers/signup')
-;
+var express = require('express'),
+    app = express(),
+    bodyParser = require('body-parser'),
+    favicon = require('serve-favicon'),
+    Sequelize = require("sequelize"),
+    dbConfig = require('./server/config')
+//signupController = require('./client/js/controllers/signup')
+    ;
 
 app.use(bodyParser());
 //app.use(moethodOverride()); // browsers by default only support get/post, not put/delete, so use this
 
+// Database
+var sequelize = new Sequelize(
+    dbConfig.database,
+    dbConfig.username,
+    dbConfig.password,
+    dbConfig.options
+);
+
+// http://docs.sequelizejs.com/en/latest/docs/models-definition/#configuration
+var Actor = sequelize.define('Actor', {
+    actor_id: {type: Sequelize.INTEGER, primaryKey: true},
+    first_name: {type: Sequelize.STRING, allowNull: true},
+    last_name: {type: Sequelize.STRING, allowNull: true},
+    last_update: {type: Sequelize.DATE, allowNull: true}
+}, {
+    timestamps: false,
+    freezeTableName: true,
+    tableName: 'actor',
+    getterMethods: {
+        fullName: function () {
+            return this.firstName + ' ' + this.lastName;
+        }
+    },
+    setterMethods: {
+        fullName: function (value) {
+            var name = value.split(' ');
+            this.setDataValue('firstName', names.slice(0, -1).join(' '));
+            this.setDataValue('lastName', names.slice(-1).join(' '));
+        }
+    },
+    instanceMethods: {
+
+        testMe: function(id){
+            return "tested with " + id;
+        },
+        findById: function (id, onSuccess, onError) {
+            Actor.find({where: {id: id}}, {raw: true})
+                .success(onSuccess).error(onError);
+        }
+    }
+});
+
+//Actor.testMe(123);
+//Actor.findById(1).then(function (actor) {
+//    console.log(actor);
+//}, function (err) {
+//    console.log(err);
+//});
+Actor.findAll({
+    where: {
+        actor_id: 1
+    }
+}).then(function (actors) {
+    console.log(actors);
+});
+
+Actor.find({
+    where: {
+        actor_id: 2
+    }
+}).then(function (actor) {
+    console.log(actors);
+});
+//Actor.findById(1).then(function (actor) {
+//    console.log(actor);
+//})
+//Session.find({
+//    where: {
+//        user_id: someNumber,
+//        token: someString,
+//        expires: {
+//            $gt: (new Date())
+//        }
+//    }
+//}).on('success', function (s) { /* things and stuff */ });
+
 // serve all asset files from necessary directories
-app.use('/bower_components',  express.static(__dirname + '/bower_components'));
-app.use('/content',  express.static(__dirname + '/content'));
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
+app.use('/content', express.static(__dirname + '/content'));
 app.use('/js', express.static(__dirname + '/client/js'));
 app.use('/client/js', express.static(__dirname + '/client/js'));
 app.use("/img", express.static(__dirname + "/content/images"));
@@ -33,7 +111,7 @@ app.use(express.static(__dirname + '/public'));
 //});
 
 // Specific API paths to get server data
-app.get('/user/:username', function(req, res) {
+app.get('/user/:username', function (req, res) {
     res.send("test " + req.params.username + " profile");
 });
 
@@ -43,12 +121,12 @@ app.get('/user/:username', function(req, res) {
 //});
 
 // Default home
-app.get('/*', function(req, res) {
+app.get('/*', function (req, res) {
     res.sendFile(__dirname + '/client/views/index.html');
 });
 
 // All others, show 404
-app.get('*', function(req, res) {
+app.get('*', function (req, res) {
     res.sendFile(__dirname + '/client/views/404.html');
 });
 
@@ -57,8 +135,6 @@ app.get('*', function(req, res) {
 //app.get('*', function (req, res) {
 //    res.sendFile(__dirname + '/client/views/index.html');
 //});
-
-
 
 
 // define routes
@@ -71,6 +147,6 @@ app.get('*', function(req, res) {
 //app.post('/api/signups', signupController.create);
 
 var port = process.env.PORT || 3000;
-app.listen(port, function() {
+app.listen(port, function () {
     console.log('listening on port ' + port);
 })
