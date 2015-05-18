@@ -1,45 +1,21 @@
-//angular.module('signup.app')
-//    .controller('signupCtrl', ['$scope', function ($scope) {
-//        //$scope.somedata = Math.random();
-//    }])
-//;
-//
-//
-////Do this instead
-//var SignUpController = function($scope){
-//    var _this = this;
-//
-//    $scope.doStuff = function(){
-//        _this.doStuff();
-//    };
-//};
-//
-//SignUpController.prototype.doStuff = function(){
-//    //Really long function body
-//};
-//
-//SignUpController.$inject = ['$scope'];
-//
-//angular.module('signup.app').controller('signupCtrl', SignUpController);
-
-
-
+"use strict";
 
 var Controller = (function () {
-    function Controller($scope) {
+    function Controller($scope, NavigationService, DataService) {
         this.$scope = $scope;
+        this.navigationService = NavigationService;
+        this.dataService = DataService;
 
         this.Positions = [
-            {name:'Attack'},
-            {name:'Midfield'},
-            {name:'Longstick Midfield'},
-            {name:'Defense'},
-            {name:'Golie'},
-            {name:'Other'},
+            {name: 'select a position', value: 0},
+            {name: 'Attack', value: 1},
+            {name: 'Midfield', value: 2},
+            {name: 'Longstick Midfield', value: 3},
+            {name: 'Defense', value: 4},
+            {name: 'Golie', value: 5},
+            {name: 'Other', value: 6},
         ];
-
-        this.ParentFirstName = 'asd';
-        this.ParentLasttName = 'werwe';
+        this.Position = this.Positions[0];
     }
 
     Controller.prototype.resetFields = function () {
@@ -51,14 +27,40 @@ var Controller = (function () {
         this.PlayersFirstName = '';
         this.PlayersLastName = '';
         this.PlayersTeam = '';
+        this.Position = this.Positions[0];
         // reset position
         console.log("reset");
     };
 
     Controller.prototype.submitForm = function () {
         console.log("submit");
+        // TODO: write to DB, proceed to package page
+        this.dataService.saveSignupInfo()
+            .then(function (res) {
+                this.navigationService.redirectToPackages();
+            }, function (err) {
+                // TODO: err, do something now?
+            });
     };
-    Controller.$inject = ['$scope'];
+
+    Controller.prototype.areFieldsValid = function () {
+        // TODO: hightligh fields that are not valid, use a directive
+        if ((this.ParentFirstName != null || this.ParentFirstName !== '') &&
+            (this.ParentLasttName != null || this.ParentLasttName !== '') &&
+            (this.ParentPhone != null || this.ParentPhone !== '') &&
+            (this.ParentEmail != null || this.ParentEmail !== '') &&
+            (this.ParentEmailConfirm != null || this.ParentEmailConfirm !== '') &&
+            (this.PlayersFirstName != null || this.PlayersFirstName !== '') &&
+            (this.PlayersLastName != null || this.PlayersLastName !== '') &&
+            (this.PlayersTeam != null || this.PlayersTeam !== '') &&
+            (this.Position.value != 0) &&
+            (this.$scope.modalAddBranchForm.$valid)) {
+            return true;
+        }
+        return false;
+
+    };
+    Controller.$inject = ['$scope', 'NavigationService', 'DataService'];
     return Controller;
 })();
-angular.module('signup.app').controller('signupCtrl', Controller);
+angular.module('signup.app').controller('SignupCtrl', Controller);

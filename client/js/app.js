@@ -25,7 +25,7 @@ angular
             .state('signup', {
                 url: '/',
                 templateUrl: '/signup.html',
-                controller: 'signupCtrl',
+                controller: 'SignupCtrl',
                 controllerAs: 'main'
             })
             //.state('package', {
