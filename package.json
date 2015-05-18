@@ -1,0 +1,29 @@
+{
+  "name": "signup",
+  "version": "1.0.0",
+  "description": "signing day lax signup",
+  "main": "server.js",
+  "dependencies": {
+    "angular": "^1.3.15",
+    "angular-ui-router": "^0.2.14",
+    "body-parser": "^1.12.4",
+    "bootstrap": "^3.3.4",
+    "bower": "^1.4.1",
+    "event-stream": "^3.3.1",
+    "express": "^4.12.3",
+    "gulp": "^3.8.11",
+    "gulp-inject": "^1.2.0",
+    "gulp-less": "^3.0.3",
+    "gulp-sourcemaps": "^1.5.2",
+    "mysql": "^2.6.2",
+    "sequelize": "^2.1.3",
+    "serve-favicon": "^2.2.1",
+    "wiredep": "^2.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex",
+  "license": "ISC"
+}

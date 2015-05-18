@@ -1,0 +1,415 @@
+body{
+    margin: 0;
+
+}
+
+#nuc-signup{
+    background: url(../img/partners/bg-cropped.jpg) no-repeat;
+    background-size: cover;
+    height: 100%;
+    z-index: 2;
+    position: relative;
+}
+
+#nuc-signup h2{
+    font-size: 15px;
+    color: #5b5b5b;
+}
+
+#nuc-signup h3{
+    font-size: 13px;
+    color: #5b5b5b;
+}
+
+/* -------- HEADER --------  */
+
+
+#nuc-signup #top .sd-logo{
+    display: inline-block;
+    height: 60px;
+    width: 240px;
+    background: url(../img/logo2.png) no-repeat center center;
+    background-size: 100%;
+    vertical-align: top;
+    margin-left: 8px;
+}
+
+#nuc-signup .text{
+    display: inline-block;
+    margin: 7px 56px;
+    font-size: 47px;
+    font-family: 'bebas_neuebold';
+    vertical-align: top;
+    text-shadow: 2px 1px #666666;
+    font-style: italic;
+}
+
+/* ------- BOX --------  */
+
+#nuc-signup #signup{
+    margin: 4% 0 0 44%;
+    position: absolute;
+}
+
+@media (max-width: 1100px){
+    #nuc-signup #signup{
+        margin-left: 35%;
+    }
+}
+
+#nuc-signup #main{
+    padding: 20px;
+    width: 510px;
+    background: #dbdbdb;
+    border-top: 1px solid #c8c8c8;
+    border-bottom: 1 solid #c8c8c8;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .89);
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .89);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .89);
+    z-index: 5;
+    min-height: 365px;
+}
+
+/* -------- BOX HOVERS ------- */
+
+#nuc-signup .hovers{
+    position: absolute;
+    right: -60px;
+    top: 100px;
+    height: 180px;
+    width: 60px;
+    /*z-index: 2;*/
+}
+
+#nuc-signup .img{
+    position: relative;
+    height: 60px;
+    width: 60px;
+    margin-bottom: 12px;
+    border-radius: 2px;
+}
+
+#nuc-signup .star-i{
+    background: url(../img/icons/star.png) no-repeat center center;
+    /*background-color: #FFC511;*/
+    background-color: #9A8646;
+    background-size: 100%;
+}
+
+#nuc-signup .emblem{
+    background: url(../img/icons/emblem.png) no-repeat center center;
+    /*background-color: #FF3611;*/
+    background-color: #9A5346;
+    background-size: 96%;
+}
+
+#nuc-signup .magnify{
+    background: url(../img/icons/magnify.png) no-repeat center center;
+    /*background-color: #11FF62;*/
+    background-color: #337148;
+    background-size: 94%;
+}
+
+#nuc-signup .helmet{
+    background: url(../img/icons/helmet.png) no-repeat center center;
+    /*background-color: #3834FF;*/
+    background-color: #3A3A6C;
+    background-size: 94%;
+}
+
+#nuc-signup .img:hover .texttip{
+    display: block;
+}
+
+#nuc-signup .texttip{
+    display: none;
+    position: absolute;
+    color: white;
+    right: 105%;
+    top: 0;
+    z-index: 6;
+    background-color: black;
+    white-space: nowrap;
+    padding: 9px 15px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.texttip .arrow{
+    position: absolute;
+    left:100%;
+    top: 35%;
+    border: 5px dashed black;
+    border-left-style: solid;
+    border-right: 0;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+}
+
+/* ------- BOX HEADER -------  */
+#nuc-signup #signup .title .info{
+    margin-bottom: 28px;
+}
+
+#nuc-signup #please-wait{
+    text-align: center;
+    padding-top: 20px;
+}
+
+#nuc-signup #spinner{
+    height: 30px;
+    width: 100%;
+    background: url(../img/ajax-loader.gif) no-repeat center center;
+}
+
+/* ------- BOX CONTENT ------- */
+
+#nuc-signup .registerForm h2{
+    display: none;
+}
+
+#nuc-signup .ui-helper-hidden-accessible{
+    display: none;
+}
+
+#nuc-signup .input-container{
+    border-bottom: 1px solid #C8C8C9;
+    width: 100%;
+    margin: 0 0 3px;
+    padding-top: 5px;
+    text-align: right;
+}
+
+/* ------- BOX CONTENT LABELS/VALID------- */
+
+#nuc-signup label{
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+}
+
+#nuc-signup label.error{
+    top: 0;
+}
+
+/* ------- BOX CONTENT INPUTS------- */
+
+#nuc-signup .sel{
+    width: 331px;
+}
+
+#nuc-signup .selhalf{
+    width: 233px;
+}
+
+#nuc-signup .selthird{
+    width: 108px;
+}
+
+#nuc-signup input{
+    box-sizing: border-box;
+    width: 331px;
+    box-shadow: none;
+    margin: 0;
+}
+
+#nuc-signup select{
+    padding: 4px 10px;
+    margin: 0;
+    background: white;
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+    -webkit-border-radius: 0;  /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+    -moz-border-radius: 0;  /* Firefox 1-3.6 */
+    border-radius: 0;  /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+    height: 31px;
+    background-color: white;
+    background-image: url(../img/down-arrow.png);
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: 21px 10px;
+
+}
+
+#nuc-signup .check-container{
+    height: 18px;
+    width: 70px;
+    display: inline-block;
+    border: none;
+    margin: 0;
+}
+
+#nuc-signup input#hs-container{
+    width:257px;
+}
+
+#nuc-signup .check-container label{
+    bottom: 0;
+    left: initial;
+    font-weight: initial;
+    text-align: left;
+    /*width: 100%;*/
+}
+#nuc-signup .check-container input{
+    width: 20px;
+}
+
+/* ------- BOX CONTENT FOOTER -------*/
+
+#nuc-signup .terms{
+    border-bottom: none;
+}
+
+#nuc-signup label.accept{
+    position: relative;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #999;
+    font-weight: normal;
+}
+
+#nuc-signup .accept a{
+    position: relative;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #999;
+    font-weight: normal;
+}
+
+#nuc-signup .parent-consent input,
+#nuc-signup .accept input{
+    width: auto;
+}
+
+#nuc-signup .parent-consent label{
+    position: relative;
+}
+
+#nuc-signup .back-and-next{
+    border-bottom: none;
+    vertical-align: baseline;
+}
+
+#nuc-signup .primaryBtn{
+    width: 100px;
+    text-align: center;
+    border-radius: 3px;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+#nuc-signup #cool-text{
+    margin: 10px 0;
+    line-height: normal;
+}
+
+/* -------- BOX FOOTER -------*/
+
+#nuc-signup .logo-container{
+    /*background-color: #5b5b5b;*/
+}
+
+#nuc-signup .logo{
+    display: inline-block;
+    height: 62px;
+    width: 220px;
+    margin: 13px 0;
+}
+
+#nuc-signup .sdp{
+    background: url(../img/partners/sd-partners-logo.png) no-repeat center center;
+    background-size: 90%;
+}
+
+#nuc-signup .nuc-stars{
+    display: inline-block;
+    height: 87px;
+    width: 70px;
+    background: url(../img/partners/nuc-stars.png) no-repeat center center;
+    background-size:100%;
+    margin: 0 14px;
+}
+
+#nuc-signup .nuc{
+    background: url(../img/partners/nuc-logo.png) no-repeat center center;
+    background-size:100%;
+}
+
+
+@media (max-width : 975px) {
+    body{min-width: 310px;}
+    #nuc-signup{ background: #dbdbdb; }
+
+    #nuc-signup #top{
+        background: -moz-linear-gradient(left,  rgba(28,28,28,0.8) 0%, rgba(64,64,64,0.9) 38%, rgba(131,131,129,0.9) 70%, rgba(131,131,129,0.9) 100%);
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(28,28,28,0.8)), color-stop(38%,rgba(64,64,64,0.9)), color-stop(70%,rgba(131,131,129,0.9)), color-stop(100%,rgba(131,131,129,0.9)));
+        background: -webkit-linear-gradient(left,  rgba(28,28,28,0.8) 0%,rgba(64,64,64,0.9) 38%,rgba(131,131,129,0.9) 70%,rgba(131,131,129,0.9) 100%);
+        background: -o-linear-gradient(left,  rgba(28,28,28,0.8) 0%,rgba(64,64,64,0.9) 38%,rgba(131,131,129,0.9) 70%,rgba(131,131,129,0.9) 100%);
+        background: -ms-linear-gradient(left,  rgba(28,28,28,0.8) 0%,rgba(64,64,64,0.9) 38%,rgba(131,131,129,0.9) 70%,rgba(131,131,129,0.9) 100%);
+        background: linear-gradient(to right,  rgba(28,28,28,0.8) 0%,rgba(64,64,64,0.9) 38%,rgba(131,131,129,0.9) 70%,rgba(131,131,129,0.9) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e61c1c1c', endColorstr='#e6838381',GradientType=1 );
+    }
+
+
+    #nuc-signup #signup{
+        margin: 0;
+        height: ;
+        width: auto;
+    }
+
+    #nuc-signup #main{
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        border: none;
+        width: auto;
+        height: 100%;
+    }
+
+    /*    #nuc-signup .sel{
+            width: 60%;
+        }
+
+        #nuc-signup .selhalf{
+            width: 30%;
+        }
+
+        #nuc-signup .selthird{
+            width: 20%;
+        }
+
+        #nuc-signup input{
+            width: 60%;
+        }
+
+        #nuc-signup input#hs-container{
+            width: 50%;
+        }*/
+
+    #nuc-signup .text{
+        position: absolute;
+        right: 0;
+        width: 30%;
+        margin-left: 5%;
+        margin-right: 20px;
+    }
+
+    #nuc-signup #top .sd-logo{
+        width: 50%;
+        max-width: 240px;
+    }
+}
+
+/*#f5f5f5 white?
+#dbdbdb light grey
+#b0b0b0
+#c8c8c8
+#5b5b5b
+
+YELLOW
+#f6e268 light yellow
+border-color: #b39603;
+background: #f4cd00;
+*/
+
