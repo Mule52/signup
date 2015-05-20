@@ -8,12 +8,12 @@ var less = require('gulp-less');
 
 var paths = {
     src: {
-        styles: 'content/css/**/*.less',
+        styles: 'public/css/**/*.less',
         html: 'client/views/index.html',
         clientJs: 'client/js/**/*.js'
     },
     dest: {
-        styles: 'content/css',
+        styles: 'public/css',
         html: 'client/views',
         clientJs: 'client/js'
     }

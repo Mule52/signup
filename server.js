@@ -88,16 +88,16 @@ Actor.find({
 
 // serve all asset files from necessary directories
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
-app.use('/content', express.static(__dirname + '/content'));
+app.use('/public', express.static(__dirname + '/public'));
 app.use('/js', express.static(__dirname + '/client/js'));
 app.use('/client/js', express.static(__dirname + '/client/js'));
-app.use("/img", express.static(__dirname + "/content/images"));
-app.use("/content/img", express.static(__dirname + "/content/images"));
-app.use("/content/img/partners", express.static(__dirname + "/content/images"));
-app.use("/css", express.static(__dirname + "/content/css"));
-app.use("/content/css", express.static(__dirname + "/content/css"));
+app.use("/img", express.static(__dirname + "/public/images"));
+app.use("/public/img", express.static(__dirname + "/public/images"));
+app.use("/public/img/partners", express.static(__dirname + "/public/images"));
+app.use("/css", express.static(__dirname + "/public/css"));
+app.use("/public/css", express.static(__dirname + "/public/css"));
 app.use(express.static(__dirname + '/client/views/partials'));
-app.use(favicon(__dirname + '/content/images/favicon.ico'));
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
 app.use(express.static(__dirname + '/public'));
 
 
