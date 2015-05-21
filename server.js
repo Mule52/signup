@@ -2,7 +2,8 @@ var express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     favicon = require('serve-favicon'),
-    site = require('./server/routes/site')
+    siteRoutes = require('./server/routes/site-routes'),
+    signupRoutes = require('./server/routes/signup-routes')
 
 //signupController = require('./client/js/controllers/signup')
     ;
@@ -26,10 +27,25 @@ app.use(express.static(__dirname + '/public'));
 // any API endpoints
 //app.post('/api/v1/auth/login', routes.auth.login);
 
+//app.post('/api/signup/isemailinuse', siteRoutes.isEmailInUse);
+//var models = require('./server/models');
+//var router = express.Router();
+//router.get('/test', function(req, res) {
+//    models.Actor.findAll({
+//        where: {
+//            actor_id: 1
+//        }
+//    }).then(function(actors){
+//        console.log(actors);
+//    });
+//});
+//app.use('/', router);
+//app.use('/signup', signupRoutes);
+app.use('/api/signup', signupRoutes);
 
 // Site routes
-app.get('/*', site.index);
-app.get('*', site.notFound);
+app.get('/*', siteRoutes.index);
+app.get('*', siteRoutes.notFound);
 
 
 //app.post('/projects/', projectController.createProject);

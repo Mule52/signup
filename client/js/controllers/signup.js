@@ -28,8 +28,11 @@ var Controller = (function () {
         this.PlayersLastName = '';
         this.PlayersTeam = '';
         this.Position = this.Positions[0];
-        // reset position
-        console.log("reset");
+
+        this.dataService.isEmailInUse(this.ParentEmail).then(function(resp){
+           console.log("returned from isEmailInUse");
+        });
+
     };
 
     Controller.prototype.submitForm = function () {
@@ -44,7 +47,7 @@ var Controller = (function () {
     };
 
     Controller.prototype.areFieldsValid = function () {
-        // TODO: hightligh fields that are not valid, use a directive
+        // TODO: highlight fields that are not valid, use a directive
         if ((this.ParentFirstName != null || this.ParentFirstName !== '') &&
             (this.ParentLasttName != null || this.ParentLasttName !== '') &&
             (this.ParentPhone != null || this.ParentPhone !== '') &&
@@ -55,6 +58,10 @@ var Controller = (function () {
             (this.PlayersTeam != null || this.PlayersTeam !== '') &&
             (this.Position.value != 0) &&
             (this.$scope.modalAddBranchForm.$valid)) {
+
+            // If all fields are ready, could check to see if the names already exists.
+            // debounce it
+
             return true;
         }
         return false;
