@@ -1,0 +1,53 @@
+{
+  "development": {
+    "username": "dev",
+    "password": "Pa$sw0rd",
+    "database": "sakila",
+    "options": {
+      "host": "localhost",
+      "dialect": "mysql",
+      "pool": {
+        "max": 5,
+        "min": 0,
+        "idle": 10000
+      },
+      "define": {
+        "timestamps": false
+      }
+    }
+  },
+  "test": {
+    "username": "test",
+    "password": "Pa$sw0rd",
+    "database": "sakila",
+    "options": {
+      "host": "localhost",
+      "dialect": "mysql",
+      "pool": {
+        "max": 5,
+        "min": 0,
+        "idle": 10000
+      },
+      "define": {
+        "timestamps": false
+      }
+    }
+  },
+  "production": {
+    "username": "prod",
+    "password": "Pa$sw0rd",
+    "database": "sakila",
+    "options": {
+      "host": "localhost",
+      "dialect": "mysql",
+      "pool": {
+        "max": 5,
+        "min": 0,
+        "idle": 10000
+      },
+      "define": {
+        "timestamps": false
+      }
+    }
+  }
+}
