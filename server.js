@@ -41,7 +41,7 @@ app.use(express.static(__dirname + '/public'));
 //});
 //app.use('/', router);
 //app.use('/signup', signupRoutes);
-app.use('/api/signup', signupRoutes);
+app.use('/signup', signupRoutes);
 
 // Site routes
 app.get('/*', siteRoutes.index);

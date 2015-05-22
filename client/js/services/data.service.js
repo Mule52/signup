@@ -1,8 +1,9 @@
 "use strict";
 
 var DataService = (function () {
-    function DataService($http) {
+    function DataService($http, UriService) {
         this.$http = $http;
+        this.uriService = UriService;
     }
 
     DataService.prototype.getUserInfo = function () {
@@ -13,8 +14,10 @@ var DataService = (function () {
         return this.$http.post(ContactsHelper.Url.GetLeadTypes, null).then(function (response) { return response.data; });
     };
 
-    DataService.prototype.isEmailInUse = function (parentEmail) {
-        return this.$http.post(ContactsHelper.Url.GetLeadTypes, parentEmail).then(function (response) { return response.data; });
+    DataService.prototype.getSignupParentsByEmail = function (parentEmail) {
+        //return this.$http.post('/signup/email', {parentEmail: parentEmail}).then(function (response) { return response.data; });
+        //return this.$http.post(this.uriService.getSignupParentsByEmail, {parentEmail: parentEmail}).then(function (response) { return response.data; });
+        return this.$http.post(this.uriService.url.getSignupParentsByEmail, {parentEmail: parentEmail}).then(function (response) { return response.data; });
     };
 
     //
@@ -36,7 +39,7 @@ var DataService = (function () {
     //};
 
 
-    DataService.$inject = ["$http"];
+    DataService.$inject = ["$http", "UriService"];
     return DataService;
 })();
 angular.module('signup.app').service('DataService', DataService);

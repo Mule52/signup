@@ -19,20 +19,19 @@ var Controller = (function () {
     }
 
     Controller.prototype.resetFields = function () {
-        this.ParentFirstName = '';
-        this.ParentLasttName = '';
-        this.ParentPhone = '';
-        this.ParentEmail = '';
-        this.ParentEmailConfirm = '';
-        this.PlayersFirstName = '';
-        this.PlayersLastName = '';
-        this.PlayersTeam = '';
-        this.Position = this.Positions[0];
-
-        this.dataService.isEmailInUse(this.ParentEmail).then(function(resp){
-           console.log("returned from isEmailInUse");
+        this.dataService.getSignupParentsByEmail(this.ParentEmail).then(function(data){
+            console.log(data);
         });
 
+        //this.ParentFirstName = '';
+        //this.ParentLasttName = '';
+        //this.ParentPhone = '';
+        //this.ParentEmail = '';
+        //this.ParentEmailConfirm = '';
+        //this.PlayersFirstName = '';
+        //this.PlayersLastName = '';
+        //this.PlayersTeam = '';
+        //this.Position = this.Positions[0];
     };
 
     Controller.prototype.submitForm = function () {
