@@ -113,6 +113,17 @@
                     </div>
                 </div>
 
+                <div class="row" ng-if="main.hasErrors">
+                    <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">x</span>
+                        </button>
+                        <strong>Attention!</strong> There are some fields that need to be changed.
+                    </div>
+                </div>
+
+
+
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="pull-right">

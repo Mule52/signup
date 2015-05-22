@@ -19,14 +19,22 @@ router.get('/userexists', function (req, res) {
 // Get Parent/Players info by parent email
 router.post('/email', function (req, res) {
     // Get parent
+    var parentEmail = req.body.parentEmail;
+    if (!parentEmail){
+        return res.json(null);
+    }
     models.Parent.find({
         where: {email: req.body.parentEmail}
     }).then(function (parent) {
-        models.Player.findAll({
-            where: {parent_id: 1}
-        }).then(function (players) {
-            res.json({parent: parent, players: players});
-        });
+        if (parent){
+            models.Player.findAll({
+                where: {parent_id: parent.id}
+            }).then(function (players) {
+                res.json({parent: parent, players: players});
+            });
+        } else {
+            res.json({parent: parent});
+        }
     });
 });
 

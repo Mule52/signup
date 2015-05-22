@@ -21,6 +21,15 @@ var Controller = (function () {
     Controller.prototype.resetFields = function () {
         this.dataService.getSignupParentsByEmail(this.ParentEmail).then(function(data){
             console.log(data);
+            if (!data || !data.parent){
+                // nothing found - good to proceed
+                console.log("no data found");
+            } else {
+                // there is data
+                console.log("we have found data");
+                // if the player info is the same, ERROR this parent/player combo already exists
+                // if the player info is not the same, they can save
+            }
         });
 
         //this.ParentFirstName = '';
