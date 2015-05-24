@@ -1,153 +1,17 @@
 <div class="row">
     <div class="col-md-5 col-md-offset-6">
-        <form name="signupForm" class="form-horizontal" method="post" action="" ng-submit="main.submitForm()">
-            <div class="content" style="background: lightgrey; padding: 15px;">
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <label>Parent Name</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-xs-6">
-                            <input type="text" class="form-control" name="ParentFirstName"
-                                   placeholder="First Name" ng-model="main.ParentFirstName" required/>
-                        </div>
-                        <div class="col-xs-6">
-                            <input type="text" class="form-control" name="ParentLasttName"
-                                   placeholder="Last Name" ng-model="main.ParentLasttName" required/>
-                        </div>
-                    </div>
-                </div>
+        <form name="signupForm" class="form-horizontal" method="post"
+              action="" ng-submit="main.submitForm()">
 
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <label>Parent Phone</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-xs-6">
-                            <input type="text" class="form-control" name="ParentPhone" ng-pattern="/^([1-9]{1}[0-9]{2}-[0-9]{3}-[0-9]{4}|[1-9]{1}[0-9]{9})$/"
-                                   placeholder="### - ### - ####" ng-model="main.ParentPhone" required/>
-                        </div>
-                    </div>
-                </div>
+            <!--Nested state views-->
+            <div id="signup-views" ui-view></div>
 
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <label>Parent Email</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-xs-6">
-                            <input type="text" class="form-control" name="ParentEmail"
-                                   ng-change="main.onParentEmailChange()"
-                                   ng-class="{'highlight-error': main.hasEmailErrors}"
-                                   placeholder="Parent Email" ng-model="main.ParentEmail" required/>
-                        </div>
-                        <div class="col-xs-6">
-                            <input type="text" class="form-control" name="ParentEmailConfirm"
-                                   ng-change="main.onParentConfirmEmailChange()"
-                                   ng-class="{'highlight-error': main.hasEmailErrors}"
-                                   placeholder="Confirm Email" ng-model="main.ParentEmailConfirm" required/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <label>Player's Name</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-xs-6">
-                            <input type="text" class="form-control" name="PlayerFirstName"
-                                   ng-class="{'highlight-error': main.hasNameErrors}"
-                                   ng-change="main.onPlayerNameChange()"
-                                   placeholder="First Name" ng-model="main.PlayerFirstName" required/>
-                        </div>
-                        <div class="col-xs-6">
-                            <input type="text" class="form-control" name="PlayerLastName"
-                                   ng-class="{'highlight-error': main.hasNameErrors}"
-                                   ng-change="main.onPlayerNameChange()"
-                                   placeholder="Last Name" ng-model="main.PlayerLastName" required/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <label>Player's Team</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-xs-6">
-                            <input type="text" class="form-control" name="PlayerTeam"
-                                   placeholder="Club or Team Name" ng-model="main.PlayerTeam" required/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <label>Player's Position</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-xs-6">
-                            <select name="SelectedUserAccountType" class="form-control" title="The player's position"
-                                    ng-model="main.Position"
-                                    ng-options="postion.name for postion in main.Positions">
-                                <!--<option value="">select a position</option>-->
-                            </select>&nbsp;
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row" ng-if="main.hasErrors">
-                    <div class="alert alert-warning alert-dismissible fade in" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">x</span>
-                        </button>
-                        <strong>Oops! We need to fix some data.</strong> {{main.errors}}
-                    </div>
-                </div>
-
-
-
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="pull-right">
-                            <button type="button" class="btn btn-default"
-                                    ng-click="main.resetFields()">
-                                Reset
-                            </button>
-                            <button id="NextButton" type="submit"
-                                    class="btn btn-primary"
-                                    data-style="zoom-in" ng-if="main.areFieldsValid()">
-                                Next
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </form>
     </div>
 </div>
+
+
+<!-- show our formData as it is being typed -->
+<pre>
+    {{ main.formData }}
+</pre>

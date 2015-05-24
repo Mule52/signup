@@ -58,7 +58,12 @@ app.get('*', siteRoutes.notFound);
 
 
 // Example of how to access a model
-//var models = require('./server/models');
+var models = require('./server/models');
+//models.Package.find({where: {id: 1}})
+//    .then(function(package){
+//        var ddd = 3;
+//    });
+
 //models.Actor.findAll({
 //    where: {
 //        actor_id: 1

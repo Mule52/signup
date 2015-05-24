@@ -10,10 +10,10 @@ var DataService = (function () {
     //    return this.$http.post(ContactsHelper.Url.GetLeadTypes, null).then(function (response) { return response.data; });
     //};
     //
-    DataService.prototype.saveSignupInfo = function (parentEmail, parentFirstName, parentLastName, parentPhone,
-        playerFirstName, playerLastName, playerTeam, playerPosition) {
+    DataService.prototype.saveSignupProfile = function (parentEmail, parentFirstName, parentLastName, parentPhone,
+                                                        playerFirstName, playerLastName, playerTeam, playerPosition) {
         return this.$http.post(
-            this.uriService.url.saveSignupInfo, {
+            this.uriService.url.saveSignupProfile, {
                 parentEmail: parentEmail,
                 parentFirstName: parentFirstName,
                 parentLastName: parentLastName,
@@ -45,6 +45,17 @@ var DataService = (function () {
             });
             return found ? true : false;
         };
+
+    DataService.prototype.getPackages = function () {
+        return this.$http.post(
+            this.uriService.url.getPackages, {})
+            .then(function (response) {
+                if (response && response.data){
+                    return response.data.packages;
+                }
+                return response.data;
+            });
+    };
 
     DataService.$inject = ["$http", "UriService"];
     return DataService;

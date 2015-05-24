@@ -17,7 +17,7 @@ var path = require('path');
 //});
 
 // Get Parent/Players info by parent email
-router.post('/email', function (req, res) {
+router.post('/get/email', function (req, res) {
     // Get parent
     var parentEmail = req.body.parentEmail;
     if (!parentEmail) {
@@ -38,7 +38,7 @@ router.post('/email', function (req, res) {
     });
 });
 
-router.get('/save/info', function (req, res) {
+router.get('/save/profile', function (req, res) {
     // Get params
     var parentEmail = req.body.parentEmail;
     var parentFirstName = req.body.parentFirstName;
@@ -49,7 +49,7 @@ router.get('/save/info', function (req, res) {
     var playerTeam = req.body.playerTeam;
     var playerPosition = req.body.playerPosition;
     if (!parentFirstName && !parentLastName && !parentPhone && !playerFirstName
-        && !playerLastName && !playerTeam && !playerPosition){
+        && !playerLastName && !playerTeam && !playerPosition) {
         return res.json({status: fail, message: 'Failed to save due to invalid parameter'});
     }
     //var parentEmail = "test533@tester.com";
@@ -63,10 +63,16 @@ router.get('/save/info', function (req, res) {
 
     models.createParentAndPlayer(parentEmail, parentFirstName, parentLastName, parentPhone,
         playerFirstName, playerLastName, playerPosition, playerTeam)
-        .then(function(result){
+        .then(function (result) {
             res.json(result);
         });
 });
 
+router.post('/get/packages', function (req, res) {
+    models.Package.findAll()
+        .then(function (packages) {
+            res.json({packages: packages});
+        });
+});
 
 module.exports = router;

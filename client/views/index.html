@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/css/signup.css">
-    <!-- endinject -->
+    <!-- views will be injected here -->
 
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/angular/angular.min.js"></script>
@@ -35,7 +35,7 @@
 
 <!-- inject:js -->
 <script src="/client/js/app.js"></script>
-<script src="/client/js/controllers/signup.js"></script>
+<script src="/client/js/controllers/signup.controller.js"></script>
 <script src="/client/js/directives/directives.js"></script>
 <script src="/client/js/services/data.service.js"></script>
 <script src="/client/js/services/navigation.service.js"></script>
@@ -52,7 +52,8 @@
         </div>
     </div>
 
-    <ui-view></ui-view>
+    <!-- views will be injected here -->
+    <div ui-view></div>
 </div>
 
 </body>
