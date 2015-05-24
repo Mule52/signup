@@ -1,0 +1,129 @@
+<div class="content" style="background: lightgrey; padding: 15px;">
+    <div class="row">
+        <div class="form-group">
+            <div class="col-xs-12">
+                <label>Choose an Evaluation Package</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-xs-12">
+
+                <div class="radio" ng-repeat="package in main.packages">
+                    <label>
+                        <input type="radio" name="optradio" ng-model="main.selectedPackage">{{package.title}} - ${{package.price}}
+                        <p>
+                        <ol type="a" ng-repeat="detail in package.descriptionDetails">
+                            <li>{{detail}}</li>
+                        </ol>
+                        </p>
+                    </label>
+                </div>
+
+
+                <!--<div class="radio">-->
+                    <!--<label>-->
+                        <!--<input type="radio" name="optradio">FILM REVIEW - $300.00-->
+                        <!--<p>-->
+                        <!--<ol type="a">-->
+                            <!--<li>A detailed review of film (highlight or game film)</li>-->
+                            <!--<li>A written report giving detailed assessment of ability, highlighting strengths and areas-->
+                                <!--for improvement along-->
+                                <!--with a recruiting action plan-->
+                            <!--</li>-->
+                        <!--</ol>-->
+                        <!--</p>-->
+                    <!--</label>-->
+                <!--</div>-->
+                <!--<div class="radio">-->
+                    <!--<label>-->
+                        <!--<input type="radio" name="optradio">IN SEASON OR OFF SEASON EVALUATION - $500.00-->
+                        <!--<p>-->
+                        <!--<ol type="a">-->
+                            <!--<li>In person game evaluation (spring school season or club summer season)</li>-->
+                            <!--<li>A written report giving detailed assessment of ability, highlighting strengths and areas-->
+                                <!--for improvement along-->
+                                <!--with a recruiting action plan-->
+                            <!--</li>-->
+                        <!--</ol>-->
+                        <!--</p>-->
+                    <!--</label>-->
+                <!--</div>-->
+                <!--<div class="radio">-->
+                    <!--<label>-->
+                        <!--<input type="radio" name="optradio">FULL SEASON EVALUATION - $1,500.00-->
+                        <!--<p>-->
+                        <!--<ol type="a">-->
+                            <!--<li>Three in person game evaluations (spring school season or club summer season)</li>-->
+                            <!--<li>A written report giving detailed assessment of ability, highlighting strengths and areas-->
+                                <!--for improvement along-->
+                                <!--with a recruiting action plan-->
+                            <!--</li>-->
+                            <!--<li>A consultation to review the report in person or via phone.</li>-->
+                        <!--</ol>-->
+                        <!--</p>-->
+                    <!--</label>-->
+                <!--</div>-->
+                <!--<div class="radio">-->
+                    <!--<label>-->
+                        <!--<input type="radio" name="optradio">FULL YEAR EVALUATION - $3,000.00-->
+                        <!--<p>-->
+                        <!--<ol type="a">-->
+                            <!--<li>Six in person game evaluations (spring school season and club summer season)</li>-->
+                            <!--<li>Two written reports giving detailed assessment of ability, highlighting strengths and-->
+                                <!--areas for improvement-->
+                                <!--along with a recruiting action plan-->
+                            <!--</li>-->
+                            <!--<li>A spring and summer consultation to review the reports in person or via phone.</li>-->
+                        <!--</ol>-->
+                        <!--</p>-->
+                    <!--</label>-->
+                <!--</div>-->
+                <!--<div class="radio">-->
+                    <!--<label>-->
+                        <!--<input type="radio" name="optradio">RECRUITING CONSULTATION - $3,000.00-->
+                        <!--<p>-->
+                        <!--<ol type="a">-->
+                            <!--<li>Unlimited phone calls to provide guidance throughout the recruiting process.</li>-->
+                            <!--<li>The recruiting consultant will assist in finding the proper level for the-->
+                                <!--student-athlete.-->
+                            <!--</li>-->
+                            <!--<li>The recruiting consultant can communicate directly with college coaches.</li>-->
+                            <!--<li>The recruiting consultant will sit in on a home visit and oversee the meeting if-->
+                                <!--desired.-->
+                            <!--</li>-->
+                        <!--</ol>-->
+                        <!--</p>-->
+                    <!--</label>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" ng-if="main.hasProfileErrors">
+        <div class="alert alert-warning alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">x</span>
+            </button>
+            <strong>Oops! We need to fix some data.</strong> {{main.errors}}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="pull-right">
+                <a ui-sref="signup.profile" class="btn btn-default">
+                    <!--ng-if="main.areFieldsValid()"-->
+                    <span class="glyphicon glyphicon-circle-arrow-left"></span> Previous
+                </a>
+                <a ui-sref="signup.payment" class="btn btn-primary">
+                    <!--ng-if="main.areFieldsValid()"-->
+                    Next <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

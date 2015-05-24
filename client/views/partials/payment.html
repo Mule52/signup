@@ -1,0 +1,47 @@
+<div class="content" style="background: lightgrey; padding: 15px;">
+    <div class="row">
+        <div class="form-group">
+            <div class="col-xs-12">
+                <label>Select a Package</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-xs-12">
+                <label>Radio buttons here</label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" ng-if="main.hasErrors">
+        <div class="alert alert-warning alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">x</span>
+            </button>
+            <strong>Oops! We need to fix some data.</strong> {{main.errors}}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="pull-right">
+                <a ui-sref="signup.package" class="btn btn-default">
+                    <!--ng-if="main.areFieldsValid()"-->
+                    <span class="glyphicon glyphicon-circle-arrow-left"></span> Previous
+                </a>
+                <!--<a ui-sref="signup.payment" class="btn btn-primary">-->
+                    <!--&lt;!&ndash;ng-if="main.areFieldsValid()"&ndash;&gt;-->
+                    <!--Complete Order <span class="glyphicon glyphicon-circle-arrow-right"></span>-->
+                <!--</a>-->
+                <button id="PaymentButton" type="submit"
+                        class="btn btn-primary"
+                        data-style="zoom-in">
+                    Complete Order
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
