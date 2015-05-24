@@ -10,15 +10,41 @@ var DataService = (function () {
     //    return this.$http.post(ContactsHelper.Url.GetLeadTypes, null).then(function (response) { return response.data; });
     //};
     //
-    //DataService.prototype.saveSignupInfo = function () {
-    //    return this.$http.post(ContactsHelper.Url.GetLeadTypes, null).then(function (response) { return response.data; });
-    //};
+    DataService.prototype.saveSignupInfo = function (parentEmail, parentFirstName, parentLastName, parentPhone,
+        playerFirstName, playerLastName, playerTeam, playerPosition) {
+        return this.$http.post(
+            this.uriService.url.saveSignupInfo, {
+                parentEmail: parentEmail,
+                parentFirstName: parentFirstName,
+                parentLastName: parentLastName,
+                parentPhone: parentPhone,
+                playerFirstName: playerFirstName,
+                playerLastName: playerLastName,
+                playerTeam: playerTeam,
+                playerPosition: playerPosition
+            })
+            .then(function (response) {
+                return response.data;
+            });
+    };
 
     DataService.prototype.getSignupParentsByEmail = function (parentEmail) {
         return this.$http.post(
             this.uriService.url.getSignupParentsByEmail, {parentEmail: parentEmail})
-            .then(function (response) { return response.data; });
+            .then(function (response) {
+                return response.data;
+            });
     };
+
+    DataService.prototype.doesParentPlayerExist =
+        function (players, playerFirstName, playerLastName) {
+            // if the player info matches any of the data.players, is dupe
+            var found = _.find(players, function (p) {
+                return p.first_name.toLowerCase() == playerFirstName.toLowerCase()
+                    && p.last_name.toLowerCase() == playerLastName.toLowerCase();
+            });
+            return found ? true : false;
+        };
 
     DataService.$inject = ["$http", "UriService"];
     return DataService;

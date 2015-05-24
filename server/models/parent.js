@@ -2,11 +2,11 @@
 
 module.exports = function(sequelize, DataTypes){
     var Parent = sequelize.define('Parent', {
-        id: {type: DataTypes.INTEGER, primaryKey: true}, // autoIncrement: true
+        id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         email: {type: DataTypes.STRING, allowNull: true, unique: true},
         first_name: {type: DataTypes.STRING, allowNull: true},
         last_name: {type: DataTypes.STRING, allowNull: true},
-        phone: {type: DataTypes.DATE, allowNull: true},
+        phone: {type: DataTypes.STRING, allowNull: true},
         create_time: {type: DataTypes.DATE, allowNull: true}
     }, {
         timestamps: false,

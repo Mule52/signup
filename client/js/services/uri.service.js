@@ -5,7 +5,8 @@ var UriService = (function () {
     }
 
     UriService.prototype.url = {
-        getSignupParentsByEmail: '/signup/email'
+        getSignupParentsByEmail: '/signup/email',
+        saveSignupInfo: '/signup/save/info'
     } ;
 
     UriService.$inject = [];

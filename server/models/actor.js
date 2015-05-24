@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes){
     var Actor = sequelize.define('Actor', {
-        actor_id: {type: DataTypes.INTEGER, primaryKey: true},
+        actor_id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
         first_name: {type: DataTypes.STRING, allowNull: true},
         last_name: {type: DataTypes.STRING, allowNull: true},
         last_update: {type: DataTypes.DATE, allowNull: true}
