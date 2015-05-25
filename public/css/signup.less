@@ -1,6 +1,97 @@
 /* ====== IMPORT: Bootstrap (reference), Mixins, Variables ====== */
+@import (reference) url("../../bower_components/bootstrap/less/bootstrap.less");
 
-@import (reference) url("../../bower_components/bootstrap/less/bootstrap.less"); // Include Bootstrap as reference (returns mixins and vars by request).
+// Include Bootstrap as reference (returns mixins and vars by request).
+
+html {
+  background: url(/public/images/bg-lax.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  background-color: initial;
+}
+
+.logo-panel {
+  height: 100px;
+
+  .sd-logo {
+    width: 168px;
+    height: 26px;
+    background: url(/public/images/logo2.png) no-repeat;
+    position: absolute;
+    bottom: 10px;
+    display: inline-block;
+  }
+
+  .text {
+    display: inline-block;
+    font-size: 30px;
+    text-shadow: 2px 1px #666666;
+    font-style: italic;
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+  }
+}
+
+.signup-views {
+  .content {
+    padding: 15px 30px;
+    background-color: rgba(218, 222, 226, 0.9);
+    border-radius: 10px;
+
+    .label-row {
+      height: 30px;
+    }
+
+    .radio-row {
+      label{
+        &:hover{
+          background-color: #e0e0e2;
+          border-radius: 5px;
+        }
+
+        //&:has(input:checked){
+        //  background-color: #000000 !important;
+        //}
+        &.selected-label {
+          background-color: #ffffff;
+        }
+      }
+
+      li {
+        font-size: 0.9em;
+      }
+    }
+    .row {
+      //height: 35px;
+      .form-group {
+        label {
+          color: black;
+          //position: relative;
+          //top: 15px;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+//body {
+//  zoom: 1;
+//  background: url(/public/images/bg-cropped.jpg) no-repeat;
+//  background-size: cover;
+//  height: 100%;
+//  z-index: 2;
+//  position: relative;
+//}
 
 //@id: signup-all;
 

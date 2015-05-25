@@ -38,7 +38,7 @@ router.post('/get/email', function (req, res) {
     });
 });
 
-router.get('/save/profile', function (req, res) {
+router.post('/save/profile', function (req, res) {
     // Get params
     var parentEmail = req.body.parentEmail;
     var parentFirstName = req.body.parentFirstName;

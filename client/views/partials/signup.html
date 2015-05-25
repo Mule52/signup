@@ -1,17 +1,11 @@
 <div class="row">
-    <div class="col-md-5 col-md-offset-6">
+    <div class="col-md-7 col-md-offset-5">
         <form name="signupForm" class="form-horizontal" method="post"
               action="" ng-submit="main.submitForm()">
 
             <!--Nested state views-->
-            <div id="signup-views" ui-view></div>
+            <div class="signup-views" id="signup-views" ui-view></div>
 
         </form>
     </div>
 </div>
-
-
-<!-- show our formData as it is being typed -->
-<pre>
-    {{ main.formData }}
-</pre>

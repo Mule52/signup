@@ -15,6 +15,14 @@ angular
             })
 
             // url will be nested (/signup/profile)
+            .state('signup.intro', {
+                url: '/intro',
+                templateUrl: 'intro.html'
+                //controller: 'SignupCtrl',
+                //controllerAs: 'main'
+            })
+
+            // url will be nested (/signup/profile)
             .state('signup.profile', {
                 url: '/profile',
                 templateUrl: 'profile.html'
@@ -39,6 +47,6 @@ angular
             });
 
             // catch all, send users to the form page
-            $urlRouterProvider.otherwise('/signup/profile');
+            $urlRouterProvider.otherwise('/signup/intro');
     }])
 ;

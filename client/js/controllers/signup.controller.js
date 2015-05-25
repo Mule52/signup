@@ -1,15 +1,16 @@
 "use strict";
 
 var Controller = (function () {
-    function Controller($scope, NavigationService, DataService, $timeout) {
+    function Controller($scope, NavigationService, DataService, $timeout, $state) {
         this.$scope = $scope;
         this.navigationService = NavigationService;
         this.dataService = DataService;
         this.$timeout = $timeout;
+        this.$state = $state;
         this.parentFromDb = null;
         this.playersFromDb = null;
         this.packages = [];
-        this.selectedPackage;
+        this.selectedPackage = null;
 
         this.Positions = [
             {name: 'select a position', value: 0},
@@ -96,27 +97,23 @@ var Controller = (function () {
         this.PlayerTeam = '';
         this.Position = this.Positions[0];
         this.selectedPackage = '';
+
+        this.hasProfileErrors = false;
+        this.errors = null;
+        this.hasNameErrors = false;
+        this.$scope.signupForm.PlayerFirstName.$setValidity("PlayerFirstName", true);
+        this.$scope.signupForm.PlayerLastName.$setValidity("PlayerLastName", true);
+        this.hasEmailErrors = false;
+        this.$scope.signupForm.ParentEmail.$setValidity("ParentEmail", true);
+        this.$scope.signupForm.ParentEmailConfirm.$setValidity("ParentEmailConfirm", true);
     };
 
     Controller.prototype.submitForm = function () {
         console.log("submit");
-        // TODO: write to DB, proceed to package page
-        this.dataService.saveSignupProfile(
-            this.ParentEmail,
-            this.ParentFirstName,
-            this.ParentLasttName,
-            this.ParentPhone,
-            this.PlayerFirstName,
-            this.PlayerLastName,
-            this.PlayerTeam,
-            this.Position)
-            .then(function (res) {
-                console.log(res);
-                this.navigationService.redirectToPackages();
-            }, function (err) {
-                // TODO: err, do something now?
-                console.log(err);
-            });
+    };
+
+    Controller.prototype.isPackageSelected = function () {
+        return this.selectedPackage != null;
     };
 
     Controller.prototype.areFieldsValid = function () {
@@ -135,7 +132,45 @@ var Controller = (function () {
         return false;
     };
 
-    Controller.$inject = ['$scope', 'NavigationService', 'DataService', '$timeout'];
+    Controller.prototype.onProfileClick = function (nextView) {
+        var self = this;
+        this.dataService.saveSignupProfile(
+            this.ParentEmail,
+            this.ParentFirstName,
+            this.ParentLasttName,
+            this.ParentPhone,
+            this.PlayerFirstName,
+            this.PlayerLastName,
+            this.PlayerTeam,
+            this.Position.name)
+            .then(function (res) {
+                // Parent/Player info saved, redirect to next view
+                if (res.errors){
+                    var errs = [];
+                    _.each(res.errors, function(e){
+                       errs.push(e.type + " " + e.message);
+                    });
+                    self.hasProfileErrors = true;
+                    self.errors = "Failed to save the profile information due to: " + errs.join('') + ".";
+                } else {
+                    self.hasProfileErrors = false;
+                    self.errors = null;
+                    self.$state.go(nextView);
+                }
+            }, function (err) {
+                // TODO: err, do something now?
+                console.log(err);
+                self.hasProfileErrors = true;
+                self.errors = "Failed to save the profile information due to: "
+                    + err.status + " " + err.statusText + ".";
+            });
+    };
+
+    Controller.prototype.getSelectedLabelClass = function (title) {
+        return this.selectedPackage && this.selectedPackage.title == title ? 'selected-label' : '';
+    };
+
+    Controller.$inject = ['$scope', 'NavigationService', 'DataService', '$timeout', '$state'];
     return Controller;
 })();
 angular.module('signup.app').controller('SignupCtrl', Controller);

@@ -1,22 +1,16 @@
-<div class="content" style="background: lightgrey; padding: 15px;">
+<div class="content">
     <div class="row">
         <div class="form-group">
             <div class="col-xs-12">
-                <label>Select a Package</label>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group">
-            <div class="col-xs-12">
-                <label>Radio buttons here</label>
+                <h4>Step 3. Provide Payment Information</h4>
             </div>
         </div>
     </div>
 
 
-    <div class="row" ng-if="main.hasErrors">
-        <div class="alert alert-warning alert-dismissible fade in" role="alert">
+
+    <div class="row" ng-if="main.hasPaymentErrors">
+        <div class="alert alert-danger alert-dismissible fade in" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">x</span>
             </button>
@@ -28,9 +22,9 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="pull-right">
-                <a ui-sref="signup.package" class="btn btn-default">
+                <a ui-sref="signup.profile" class="btn btn-default">
                     <!--ng-if="main.areFieldsValid()"-->
-                    <span class="glyphicon glyphicon-circle-arrow-left"></span> Previous
+                    <span class="glyphicon glyphicon-circle-arrow-left"></span> Back
                 </a>
                 <!--<a ui-sref="signup.payment" class="btn btn-primary">-->
                     <!--&lt;!&ndash;ng-if="main.areFieldsValid()"&ndash;&gt;-->
