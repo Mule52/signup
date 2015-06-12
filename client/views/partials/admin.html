@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-7 col-md-offset-5">
+        <form name="signupForm" class="form-horizontal" method="post"
+              action="" ng-submit="main.submitForm()">
+
+            <!--Nested state views-->
+            <!--<div class="signup-views" id="signup-views" ui-view></div>-->
+            <div class="signup-views" id="signup-views">
+                <div class="content">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <label>Administrative Portal</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p>
+                                Admin stuff here... if you can see this, you are authenticated
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="pull-right">
+                                <a ui-sref="signup.intro" class="btn btn-primary">
+                                    Home
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

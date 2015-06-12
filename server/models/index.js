@@ -7,6 +7,7 @@ var dbConfig = require(path.join(__dirname, '/../../config/database.json'))[env]
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, dbConfig.options);
 var db = {};
+var bcrypt = require('bcrypt-nodejs');
 
 fs.readdirSync(__dirname)
     .filter(function (file) {
@@ -47,6 +48,36 @@ db.createParentAndPlayer = function (parentEmail, parentFirstName, parentLastNam
                     .then(function (player) {
                         return {parent: parent, player: player};
                     });
+            });
+    }).then(function (result) {
+        // Transaction has been committed
+        return result;
+    }).catch(function (err) {
+        // Transaction has been rolled back
+        return err;
+    });
+};
+
+
+db.generateHash = function(password){
+    return  bcrypt.hashSync(password);
+};
+
+db.isPasswordValid = function(hashedPassword, userPassword){
+    return bcrypt.compareSync(userPassword, hashedPassword); // true
+};
+
+db.createAdminUser = function (email, password) {
+    var hashedPassword = db.generateHash(password);
+    return sequelize.transaction(function (t) {
+        return db.User.create({
+            email: email,
+            password: hashedPassword
+        }, {isNewRecord: true, transaction: t})
+            .then(function (user) {
+                var isPwValid = db.isPasswordValid(hashedPassword, password);
+            }, function(err){
+                console.log(err);
             });
     }).then(function (result) {
         // Transaction has been committed

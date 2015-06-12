@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html ng-app="signup.app">
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--<link rel="stylesheet" href="/public/css/main.css?v=1418673189">-->
+    <!--<link rel="stylesheet" href="/public/css/lander.css?v=1418158426">-->
+    <title></title>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/css/signup.css">
+    <!-- views will be injected here -->
+
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/bootstrap/js/affix.js"></script>
+    <script src="/bower_components/bootstrap/js/alert.js"></script>
+    <script src="/bower_components/bootstrap/js/button.js"></script>
+    <script src="/bower_components/bootstrap/js/carousel.js"></script>
+    <script src="/bower_components/bootstrap/js/collapse.js"></script>
+    <script src="/bower_components/bootstrap/js/dropdown.js"></script>
+    <script src="/bower_components/bootstrap/js/modal.js"></script>
+    <script src="/bower_components/bootstrap/js/popover.js"></script>
+    <script src="/bower_components/bootstrap/js/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap/js/tab.js"></script>
+    <script src="/bower_components/bootstrap/js/tooltip.js"></script>
+    <script src="/bower_components/underscore/underscore-min.js"></script>
+</head>
+<body>
+
+<!-- inject:js -->
+<script src="/client/js/app.js"></script>
+<script src="/client/js/controllers/login.controller.js"></script>
+<script src="/client/js/services/data.service.js"></script>
+<script src="/client/js/services/authentication.service.js"></script>
+<script src="/client/js/services/uri.service.js"></script>
+<!-- endinject -->
+
+<div class="container" ng-controller="LoginCtrl as main">
+    <div class="row">
+        <div class="col-md-5 col-md-offset-6">
+            <div class="logo-panel">
+                <div class="sd-logo"></div>
+                <div class="text">LACROSSE.</div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="row">
+            <div class="col-md-7 col-md-offset-5">
+                <form name="loginForm" class="form-horizontal" method="post"
+                      action="" ng-submit="main.submitForm()">
+                    <div class="signup-views">
+                        <div class="content">
+                            <div class="row label-row">
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <h4>Login to SigningDay Lacrosse</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-4 text-right">
+                                    <span>Email</span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <input type="text" class="form-control" name="email"
+                                           placeholder="username" ng-model="main.email" required/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-4 text-right">
+                                    <span>Password</span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <input type="password" class="form-control" name="password"
+                                           placeholder="password" ng-model="main.password" required/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <div class="pull-right">
+                                        <span ng-switch="main.areFieldsValid()">
+                                            <input type="submit" class="btn btn-primary" ng-switch-when="true"
+                                                   value="Login" />
+                                            <!--<a class="btn btn-primary" ng-switch-when="true"-->
+                                               <!--ng-click="main.onLoginClick('admin')">-->
+                                                <!--Login-->
+                                            <!--</a>-->
+                                            <!--<a class="btn btn-primary" ng-switch-when="false"-->
+                                               <!--ng-click="main.onLoginClick('admin')" disabled>-->
+                                                <!--Login-->
+                                            <!--</a>-->
+                                            <input type="submit" class="btn btn-primary" ng-switch-when="false"
+                                                   value="Login" disabled/>
+                                        </span>
+
+                                        <a class="btn btn-primary"
+                                           ng-click="main.testAuth()">
+                                            Test Auth
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" ng-if="main.hasLoginErrors" style="margin-top: 20px;">
+                                <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">x</span>
+                                    </button>
+                                    <strong>Oops! We need to fix some data.</strong> {{main.errors}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

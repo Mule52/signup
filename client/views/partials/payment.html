@@ -7,6 +7,123 @@
         </div>
     </div>
 
+    <div class="row label-row">
+        <div class="form-group">
+            <div class="col-xs-12">
+                <label>Order Summary</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-xs-11 col-xs-offset-1">
+                Selected Evaluation Package: FILM AND REVIEW {{main.selectedPackage}}
+            </div>
+            <div class="col-xs-11 col-xs-offset-1">
+                Price : $1,500.00 {{main.selectedPackage}}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row label-row">
+        <div class="form-group">
+            <div class="col-xs-12">
+                <label>Credit Card Information</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-xs-4 text-right">
+                <span>First Name</span>
+            </div>
+            <div class="col-xs-8">
+                <input type="text" class="form-control" name="CardFirstName"
+                       placeholder="First Name" ng-model="main.CardFirstName" required/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-xs-4 text-right">
+                <span>Last Name</span>
+            </div>
+            <div class="col-xs-8">
+                <input type="text" class="form-control" name="CardLasttName"
+                       placeholder="Last Name" ng-model="main.CardLasttName" required/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-xs-4 text-right">
+                <span>Card Number</span>
+            </div>
+            <div class="col-xs-8">
+                <input type="text" class="form-control" name="CardNumber"
+                       placeholder="Card Number" ng-model="main.CardNumber" required/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <div class="col-xs-4 text-right">
+                <span>Expiration Date</span>
+            </div>
+            <div class="col-xs-8">
+                <div>
+                    <input type="text" class="form-control input-small" name="CardMonth"
+                           placeholder="MM" ng-model="main.CardMonth" required/>
+                    /
+                    <input type="text" class="form-control input-small" name="CardYear"
+                           placeholder="YY" ng-model="main.CardYear" required/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-xs-4 text-right">
+                <span>CVV</span>
+            </div>
+            <div class="col-xs-8">
+                <div>
+                    <input type="text" class="form-control input-small" name="CardCvv"
+                           placeholder="###" ng-model="main.CardCvv" required/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-break">
+        <div class="form-group">
+            <div class="col-xs-4 text-right">
+                <span>Email</span>
+            </div>
+            <div class="col-xs-8">
+                <div>
+                    <input type="text" class="form-control" name="PaymentEmail"
+                           placeholder="Email" ng-model="main.PaymentEmail" required/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-xs-4 text-right">
+                <span>Phone Number</span>
+            </div>
+            <div class="col-xs-8">
+                <div>
+                    <input type="text" class="form-control" name="PaymentPhone"
+                           placeholder="Phone" ng-model="main.PaymentPhone" required/>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <div class="row" ng-if="main.hasPaymentErrors">

@@ -23,6 +23,7 @@
             </div>
         </div>
     </div>
+
     <div class="row" ng-if="main.hasPackageErrors">
         <div class="alert alert-danger alert-dismissible fade in" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -38,10 +39,14 @@
                     <!--ng-if="main.areFieldsValid()"-->
                     <span class="glyphicon glyphicon-circle-arrow-left"></span> Back
                 </a>
-                <a ui-sref="signup.profile" class="btn btn-primary" ng-if="main.isPackageSelected()">
-                    <!--ng-if="main.areFieldsValid()"-->
-                    Next <span class="glyphicon glyphicon-circle-arrow-right"></span>
-                </a>
+                <span ng-switch="main.isPackageSelected()">
+                     <a ui-sref="signup.profile" class="btn btn-primary" ng-switch-when="true">
+                         Next <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                     </a>
+                     <a ui-sref="signup.profile" class="btn btn-primary" ng-switch-when="false" disabled>
+                         Next <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                     </a>
+                </span>
             </div>
         </div>
     </div>

@@ -1,0 +1,12 @@
+&& !parentFirstName
+&& !parentLastName
+&& !parentPhone
+&& !playerFirstName
+&& !playerLastName
+&& !playerTeam
+&& !playerPosition
+
+if (!parentFirstName && !parentLastName && !parentPhone && !playerFirstName
+    && !playerLastName && !playerTeam && !playerPosition){
+    return res.json(null);
+}

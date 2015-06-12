@@ -1,6 +1,4 @@
 <div class="content">
-
-
     <div class="row">
         <div class="form-group">
             <div class="col-xs-12">
@@ -10,38 +8,55 @@
     </div>
 
     <div class="row">
-        <div class="form-groupX">
-            <div class="col-xs-12">
-                <p>
-                    SigningDay is a lacrosse-recruiting platform that puts players in control of the recruiting process.
-                    On SigningDay, players manage their own recruiting profiles, post first-hand content and communicate
-                    directly with college coaches. SigningDay provides athletes with the tools and resources to achieve
-                    success in the recruiting process and throughout their careers.
-                </p>
+        <div class="col-xs-12">
+            <p>
+                SigningDay is a lacrosse-recruiting platform that puts players in control of the recruiting process.
+                On SigningDay, players manage their own recruiting profiles, post first-hand content and communicate
+                directly with college coaches. SigningDay provides athletes with the tools and resources to achieve
+                success in the recruiting process and throughout their careers.
+            </p>
 
-                <p>
-                    SigningDay Lacrosse is a three-step process.
+            <p>
+                SigningDay Lacrosse is a three-step process.
 
-                <ol>
-                    <li>Choose an evaluation package</li>
-                    <li>Fill out parent and player profile information</li>
-                    <li>Pay for the evaluation package and await email confirmation</li>
-                </ol>
+            <ol>
+                <li>Choose an evaluation package</li>
+                <li>Fill out parent and player profile information</li>
+                <li>Pay for the evaluation package and await email confirmation</li>
+            </ol>
 
-                    Let's get started!
-                </p>
-            </div>
+            Let's get started!
+            </p>
         </div>
     </div>
-
 
     <div class="row">
         <div class="col-xs-12">
             <div class="pull-right">
-                <a ui-sref="signup.package" class="btn btn-primary">
-                    <!--ng-if="main.areFieldsValid()"-->
-                    Next <span class="glyphicon glyphicon-circle-arrow-right"></span>
-                </a>
+                <div ng-switch="main.isEulaAccepted">
+                    <a ui-sref="signup.package" class="btn btn-primary" ng-switch-when="true">
+                        Next <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                    </a>
+                    <a ui-sref="signup.package" class="btn btn-primary" ng-switch-when="false" disabled>
+                        Next <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-break">
+        <div class="col-xs-12 eula-container">
+            <div class="eula-control">
+                <input type="checkbox" ng-model="main.isEulaAccepted"/>
+                <span>I accept the <a ui-sref="signup.terms">Terms and Conditions</a> and the <a
+                        ui-sref="signup.privacy">Privacy Policy</a>.</span>
+            </div>
+            <div class="eula-text">
+                SigningDay is a lacrosse-recruiting platform that puts players in control of the recruiting process.
+                On SigningDay, players manage their own recruiting profiles, post first-hand content and communicate
+                directly with college coaches. SigningDay provides athletes with the tools and resources to achieve
+                success in the recruiting process and throughout their careers.
             </div>
         </div>
     </div>

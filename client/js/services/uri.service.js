@@ -7,7 +7,10 @@ var UriService = (function () {
     UriService.prototype.url = {
         getSignupParentsByEmail: '/signup/get/email',
         getPackages: '/signup/get/packages',
-        saveSignupProfile: '/signup/save/profile'
+        saveSignupProfile: '/signup/save/profile',
+        login: '/login',
+        logout: '/logout',
+        isauth: '/isauth'
     } ;
 
     UriService.$inject = [];

@@ -75,4 +75,11 @@ router.post('/get/packages', function (req, res) {
         });
 });
 
+//router.post('/login', function (req, res) {
+//    models.Package.findAll()
+//        .then(function (packages) {
+//            res.json({packages: packages});
+//        });
+//});
+
 module.exports = router;

@@ -75,6 +75,60 @@ body {
           //position: relative;
           //top: 15px;
         }
+
+        .input-small {
+          width: 50px;
+          display: inline-block;
+        }
+
+        .form-control-feedback {
+          top: 10px;
+          right: 10px;
+          color: #999;
+          font-size: 0.9em;
+        }
+      }
+    }
+
+    .row-break {
+      border-top: 1px solid #a3aaae;
+      font-size: 0.9em;
+      margin-top: 15px;
+      padding-top: 15px;
+
+      .eula-container {
+        color: #7f7f7f;
+
+        .eula-control {
+          width: 100%;
+          text-align: right;
+        }
+
+        .eula-text {
+          padding-top: 10px;
+        }
+      }
+    }
+
+    .btn-primary {
+      color: #4e4409;
+      //background-color: #fbdb1f;
+      border-color: #968419;
+
+      text-shadow: 1px 1px 1px #EBD341;
+      filter: dropshadow(color=#ebd341, offx=1, offy=1);
+      background: #FBDB1F;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FBDB1F), color-stop(100%, #CDB316));
+      background: -moz-linear-gradient(top, #FBDB1F 0%, #CDB316 100%);
+      background: -webkit-linear-gradient(top, #FBDB1F 0%, #CDB316 100%);
+      background: -o-linear-gradient(top, #FBDB1F 0%, #CDB316 100%);
+      background: -ms-linear-gradient(top, #FBDB1F 0%, #CDB316 100%);
+      background: linear-gradient(top, #FBDB1F 0%, #CDB316 100%);
+
+      &:hover {
+        color: #4e4409;
+        background: #fbdb1f;
+        border-color: #204d74
       }
     }
   }

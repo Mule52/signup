@@ -1,16 +1,25 @@
 "use strict";
 
 var Controller = (function () {
-    function Controller($scope, NavigationService, DataService, $timeout, $state) {
+    function Controller($scope, DataService, $timeout, $state) {
         this.$scope = $scope;
-        this.navigationService = NavigationService;
         this.dataService = DataService;
         this.$timeout = $timeout;
         this.$state = $state;
         this.parentFromDb = null;
         this.playersFromDb = null;
         this.packages = [];
-        this.selectedPackage = null;
+        this.selectedPackage = null
+        this.isEulaAccepted = false;
+
+        this.CardFirstName;
+        this.CardLastName;
+        this.CardNumber;
+        this.CardMonth;
+        this.CardYear;
+        this.CardCvv;
+        this.PaymentEmail;
+        this.PaymentPhone;
 
         this.Positions = [
             {name: 'select a position', value: 0},
@@ -137,7 +146,7 @@ var Controller = (function () {
         this.dataService.saveSignupProfile(
             this.ParentEmail,
             this.ParentFirstName,
-            this.ParentLasttName,
+            this.ParentLastName,
             this.ParentPhone,
             this.PlayerFirstName,
             this.PlayerLastName,
@@ -170,7 +179,7 @@ var Controller = (function () {
         return this.selectedPackage && this.selectedPackage.title == title ? 'selected-label' : '';
     };
 
-    Controller.$inject = ['$scope', 'NavigationService', 'DataService', '$timeout', '$state'];
+    Controller.$inject = ['$scope', 'DataService', '$timeout', '$state'];
     return Controller;
 })();
 angular.module('signup.app').controller('SignupCtrl', Controller);

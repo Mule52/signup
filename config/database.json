@@ -3,6 +3,7 @@
     "username": "dev",
     "password": "Pa$sw0rd",
     "database": "sakila",
+    "port": 3306,
     "options": {
       "host": "localhost",
       "dialect": "mysql",
@@ -20,6 +21,7 @@
     "username": "test",
     "password": "Pa$sw0rd",
     "database": "sakila",
+    "port": 3306,
     "options": {
       "host": "localhost",
       "dialect": "mysql",
@@ -37,6 +39,7 @@
     "username": "prod",
     "password": "Pa$sw0rd",
     "database": "sakila",
+    "port": 3306,
     "options": {
       "host": "localhost",
       "dialect": "mysql",
