@@ -2,7 +2,7 @@
   "development": {
     "username": "dev",
     "password": "Pa$sw0rd",
-    "database": "sakila",
+    "database": "signup",
     "port": 3306,
     "options": {
       "host": "localhost",
@@ -20,7 +20,7 @@
   "test": {
     "username": "test",
     "password": "Pa$sw0rd",
-    "database": "sakila",
+    "database": "signup",
     "port": 3306,
     "options": {
       "host": "localhost",
@@ -38,7 +38,7 @@
   "production": {
     "username": "prod",
     "password": "Pa$sw0rd",
-    "database": "sakila",
+    "database": "signup",
     "port": 3306,
     "options": {
       "host": "localhost",

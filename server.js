@@ -12,7 +12,6 @@ var express = require('express'),
     SessionStore = require('express-mysql-session')
     ;
 
-
 app.use(session({secret: 'sdsecretsessionkey'})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
